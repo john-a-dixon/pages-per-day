@@ -1,9 +1,8 @@
 from datetime import datetime
 
-year = datetime.now().year
+year = 2000 #datetime.now().year
 day_count = int(datetime.now().strftime("%j"))
-is_leap = year % 4 == 0
-
+is_leap = ((year % 4) == 0 & (year % 100) != 0) | (year % 400) == 0 
 
 if(is_leap and day_count == 60):
     print('No reading today')
