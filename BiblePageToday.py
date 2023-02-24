@@ -13,11 +13,15 @@ def pages_per_day(pages, days):
 
 def full_year():
     first_portion, second_portion = pages_per_day(int(sys.argv[1]), 365)
+    # The current year
     year = datetime.now().year
-    today_count = int(datetime.now().strftime("%j"))
-    print(today_count)
-    # days_to_count = int(datetime.now().strftime("%j"))
+    # The current day of the year
+    day_count = int(datetime.now().strftime("%j"))
+    # The days to use when calculating the number of pages. Since leap years are not counted, this is important
+    days_to_count = day_count - 1 if (is_leap and day_count > 60) else day_count
 
+    print(days_to_count)
+    print(first_portion, second_portion)
 
     # if(is_leap(year) and day_count == 60):
     #     print('No reading today')
