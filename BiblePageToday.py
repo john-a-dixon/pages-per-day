@@ -1,10 +1,9 @@
-import datetime
-import matplotlib
+from datetime import datetime
 
-day_of_year = datetime.datetime.now().timetuple()
-day_count = day_of_year.tm_yday
-year = day_of_year.tm_year
+year = datetime.now().year
+day_count = int(datetime.now().strftime("%j"))
 is_leap = year % 4 == 0
+
 
 if(is_leap and day_count == 60):
     print('No reading today')
