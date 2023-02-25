@@ -19,22 +19,20 @@ def full_year():
     day_count = int(datetime.now().strftime("%j"))
     # The days to use when calculating the number of pages. Since leap years are not counted, this is important
     days_to_count = day_count - 1 if (is_leap and day_count > 60) else day_count
+    
 
-    print(days_to_count)
-    print(first_portion, second_portion)
-
-    # if(is_leap(year) and day_count == 60):
-    #     print('No reading today')
-    # elif(day_count <= first_portion[0]):
-    #     day_count = day_count - 1 if (is_leap and day_count > 60) else day_count
-    #     print(f'Page {day_count * 4}')
-    # else:
-    #     day_count = day_count - 1 if (is_leap and day_count > 60) else day_count
-    #     print(f'Page: {(85 * 4) + ((day_count - 85) * 3)}')
+    if(is_leap(year) and day_count == 60):
+        print('No reading today')
+    elif(days_to_count <= first_portion[0]):
+        print(f'Read to the end of page {days_to_count * first_portion[1]}')
+    else:
+        print(f'Page: {(first_portion[0] * first_portion[1]) + ((days_to_count - first_portion[0]) * second_portion[1])}')
 
 
-def duration_of_days(num_days):
+def pages_per_day():
     pass
 
-full_year()
-# print(pages_per_day(1180, 365))
+if len(sys.argv) == 2:
+    full_year()
+else:
+    pages_per_day()
