@@ -29,10 +29,7 @@ def full_year():
         print(f'Page: {(first_portion[0] * first_portion[1]) + ((days_to_count - first_portion[0]) * second_portion[1])}')
 
 
-def pages_per_day():
-    pass
-
 if len(sys.argv) == 2:
     full_year()
 else:
-    pages_per_day()
+    print(pages_per_day(int(sys.argv[1]), int(sys.argv[2])))
