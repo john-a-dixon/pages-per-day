@@ -18,7 +18,7 @@ def full_year():
     # The current day of the year
     day_count = int(datetime.now().strftime("%j"))
     # The days to use when calculating the number of pages. Since leap years are not counted, this is important
-    days_to_count = day_count - 1 if (is_leap and day_count > 60) else day_count
+    days_to_count = day_count - 1 if (is_leap(year) and day_count > 60) else day_count
     
 
     if(is_leap(year) and day_count == 60):
